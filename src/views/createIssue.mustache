@@ -13,6 +13,11 @@
                         Not all fields were filled out!
                     </div>
                 {{/missingFields}}
+                {{#tooShort}}
+                    <div class="alert alert-danger">
+                        The title must be more than 15 chars and the description msut be more than 50 chars long! 
+                    </div>
+                {{/tooShort}}
                 {{#issueCreatedSuccessfully}}
                     <div class="alert alert-success">
                         The issue was created successfully! You can view it <a href="{{issueURL}}" target="_blank">here</a>.<br><br>
