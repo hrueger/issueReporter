@@ -13,6 +13,11 @@
                         Not all fields were filled out!
                     </div>
                 {{/missingFields}}
+                {{#secretIncorrect}}
+                    <div class="alert alert-danger">
+                        The Anti-Spam-Secret is incorrect!
+                    </div>
+                {{/secretIncorrect}}
                 {{#tooShort}}
                     <div class="alert alert-danger">
                         The title must be more than 15 chars and the description msut be more than 50 chars long! 
@@ -35,7 +40,13 @@
                     <div class="form-group row">
                         <label for="description" class="col-sm-2 col-form-label">Description</label>
                         <div class="col-sm-10">
-                            <textarea name="description" class="form-control" id="description" value="{{description}}" placeholder="Description of the problem"></textarea>
+                            <textarea name="description" class="form-control" id="description" placeholder="Description of the problem">{{description}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="secret" class="col-sm-2 col-form-label">Secret</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="secret" class="form-control" id="secret" value="" placeholder="Anti-Spam-Secret">
                         </div>
                     </div>
                     <div class="form-group row">
