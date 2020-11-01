@@ -9,7 +9,7 @@ services:
         ports:
             - '3000:3000'
         restart: always
-        image: 'hrueger/issueReporter:latest'
+        image: 'hrueger/issuereporter:latest'
         environment:
             APP_NAME: My IssueReporter
             REPOSITORY: owner/repo
