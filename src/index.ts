@@ -1,12 +1,13 @@
 import * as express from "express";
 import * as mustacheExpress from "mustache-express";
 import * as bodyParser from "body-parser";
-import createIssueRoute from "./routes/createIssue";
+import * as helmet from "helmet";
 import welcomeRoute from "./routes/welcome";
 import { getGlobalConfigs } from "./globalConfigs";
 
 let app = express();
 
+app.use(helmet());
 app.set("views", `${__dirname}/views`);
 
 app.set("view engine", "mustache");
