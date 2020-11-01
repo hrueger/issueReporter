@@ -23,6 +23,11 @@
                         The title must be more than 15 chars and the description msut be more than 50 chars long! 
                     </div>
                 {{/tooShort}}
+                {{#unknownError}}
+                    <div class="alert alert-warning">
+                        An unknown error occured. Please contact the administrator.
+                    </div>
+                {{/unknownError}}
                 {{#issueCreatedSuccessfully}}
                     <div class="alert alert-success">
                         The issue was created successfully! You can view it <a href="{{issueURL}}" target="_blank">here</a>.<br><br>
