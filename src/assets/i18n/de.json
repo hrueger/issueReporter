@@ -1,0 +1,28 @@
+{
+    "createIssue": "Issue erstellen",
+    "newIssueFor": "Neuer Issue für",
+    "errors": {
+        "missingFields": "Nicht alle Felder wurden ausgefüllt!",
+        "wrongSecret": "Das Anti-Spam-Passwort ist falsch!",
+        "tooShort": "Der Titel muss länger als 15 Zeichen und die Beschreibung länger als 50 Zeichen sein!",
+        "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte kontaktiere den Administrator."
+    },
+    "issueCreatedSuccessfully": {
+        "part1": "Der Issue wurde erfolgreich erstellt! Du kannst ihn",
+        "part2": "hier",
+        "part3": "ansehen.",
+        "part4": "Wenn du möchtest, kannst du einen",
+        "part5": "weiteren Issue erstellen",
+        "part6": "."
+    },
+    "title": "Titel",
+    "description": "Beschreibung",
+    "secret": "Anti-Spam-Passwort",
+    "submit": "Erstellen",
+    "welcome": "Willkommen",
+    "info": {
+        "part1": "Solltest Du Fragen oder Probleme haben, erstelle einen Issue",
+        "part2": "hier",
+        "part3": "."
+    }
+}
