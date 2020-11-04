@@ -1,5 +1,6 @@
 import { Octokit } from "@octokit/rest";
 import { getGlobalConfigs } from "../globalConfigs";
+import { v4 } from "uuid";
 const octokit = new Octokit({
     auth: getGlobalConfigs().token,
     log: {
@@ -52,12 +53,24 @@ async function postCreateIssueRoute(request, response) {
         // Submit issue
         if (globals.repository) {
             try {
-
+                let body = request.body.description;
+                if (request.files?.screenshot) {
+                    const filename = `${v4()}.${(request.files.screenshot.name as string).split(".").pop()}`;
+                    await octokit.repos.createOrUpdateFileContents({
+                        owner: globals.assetsRepository.split("/")[0],
+                        repo: globals.assetsRepository.split("/")[1],
+                        content: (request.files.screenshot.data as Buffer).toString("base64"),
+                        message: `Added \`${filename}\``,
+                        path: filename,
+                        branch: globals.assetsBranch,
+                    });
+                    body += `\n\n**Attached Screenshot:**\n![${filename}](https://raw.githubusercontent.com/${globals.assetsRepository}/${globals.assetsBranch}/${filename})`;
+                }
                 await octokit.issues.create({
                     owner: globals.repository.split("/")[0],
                     repo: globals.repository.split("/")[1],
                     title: request.body.title,
-                    body: request.body.description,
+                    body,
                 });
                 response.render('createIssue',
                     {
@@ -75,7 +88,7 @@ async function postCreateIssueRoute(request, response) {
 
 
     function error(e) {
-        console.log(`Error: ${e}`);
+        console.log(e);
         response.render('createIssue',
             {
                 ...getGlobalConfigs(),

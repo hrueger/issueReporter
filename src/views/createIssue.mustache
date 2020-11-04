@@ -30,28 +30,37 @@
                 {{/unknownError}}
                 {{#issueCreatedSuccessfully}}
                     <div class="alert alert-success">
-                        {{i18n.issueCreatedSuccessfully.part1}} <a href="{{issueURL}}" target="_blank">{{i18n.issueCreatedSuccessfully.part2}}</a>{{i18n.issueCreatedSuccessfully.part3}}<br><br>
-                        {{i18n.issueCreatedSuccessfully.part4}} <a href="/{{urlKey}}"></a>{{i18n.issueCreatedSuccessfully.part6}}
+                        {{i18n.issueCreatedSuccessfully.part1}} <a href="{{issueURL}}" target="_blank">{{i18n.issueCreatedSuccessfully.part2}}</a> {{i18n.issueCreatedSuccessfully.part3}}<br><br>
+                        {{i18n.issueCreatedSuccessfully.part4}} <a href="/{{urlKey}}">{{i18n.issueCreatedSuccessfully.part5}}</a>{{i18n.issueCreatedSuccessfully.part6}}
                     </div>
                 {{/issueCreatedSuccessfully}}
                 {{^issueCreatedSuccessfully}}
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
-                        <label for="title" class="col-sm-2 col-form-label">{{i18n.title}}</label>
+                        <label for="title" class="col-sm-2 col-form-label">{{i18n.title}} <i class="text-danger">*</i></label>
                         <div class="col-sm-10">
                             <input type="text" name="title" class="form-control" id="title" value="{{title}}" placeholder="{{i18n.title}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="description" class="col-sm-2 col-form-label">{{i18n.description}}</label>
+                        <label for="description" class="col-sm-2 col-form-label">{{i18n.description}} <i class="text-danger">*</i></label>
                         <div class="col-sm-10">
                             <textarea name="description" class="form-control" id="description" placeholder="{{i18n.description}}">{{description}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="secret" class="col-sm-2 col-form-label">{{i18n.secret}}</label>
+                        <label for="secret" class="col-sm-2 col-form-label">{{i18n.secret}} <i class="text-danger">*</i></label>
                         <div class="col-sm-10">
                             <input type="password" name="secret" class="form-control" id="secret" value="" placeholder="{{i18n.secret}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="secret" class="col-sm-2 col-form-label">{{i18n.screenshot}}</label>
+                        <div class="col-sm-10">
+                            <div class="">
+                                <input type="file" class="" name="screenshot" id="screenshot">
+                                <label class="" for="screenshot">{{i18n.screenshot}}</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
