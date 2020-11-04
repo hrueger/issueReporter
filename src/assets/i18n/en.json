@@ -1,0 +1,28 @@
+{
+    "createIssue": "Create Issue",
+    "newIssueFor": "New Issue for",
+    "errors": {
+        "missingFields": "Not all fields were filled out!",
+        "wrongSecret": "The Anti-Spam-Secret is incorrect!",
+        "tooShort": "The title must be more than 15 chars and the description msut be more than 50 chars long!",
+        "unknownError": "An unknown error occured. Please contact the administrator."
+    },
+    "issueCreatedSuccessfully": {
+        "part1": "The issue was created successfully! You can view it",
+        "part2": "here",
+        "part3": ".",
+        "part4": "If you want, you can",
+        "part5": "create another issue",
+        "part6": "."
+    },
+    "title": "Title",
+    "description": "Description",
+    "secret": "Anti-Spam-Secret",
+    "submit": "Submit",
+    "welcome": "Welcome",
+    "info": {
+        "part1": "If you have any questions or encounter problems, just open an issue",
+        "part2": "here",
+        "part3": "."
+    }
+}

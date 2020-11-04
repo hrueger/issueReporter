@@ -2,62 +2,62 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
-        <title>Create Issue | {{appName}}</title>
+        <title>{{i18n.createIssue}} | {{appName}}</title>
     </head>
     <body>
         <div class="container p-5">
             <div class="card card-body bg-light">
-                <h1>New Issue for <i>{{repository}}</i></h1>
+                <h1>{{i18n.newIssueFor}} <i>{{repository}}</i></h1>
                 {{#missingFields}}
                     <div class="alert alert-danger">
-                        Not all fields were filled out!
+                        {{i18n.errors.missingFields}}
                     </div>
                 {{/missingFields}}
                 {{#secretIncorrect}}
                     <div class="alert alert-danger">
-                        The Anti-Spam-Secret is incorrect!
+                        {{i18n.errors.wrongSecret}}
                     </div>
                 {{/secretIncorrect}}
                 {{#tooShort}}
                     <div class="alert alert-danger">
-                        The title must be more than 15 chars and the description msut be more than 50 chars long! 
+                        {{i18n.errors.tooShort}}
                     </div>
                 {{/tooShort}}
                 {{#unknownError}}
                     <div class="alert alert-warning">
-                        An unknown error occured. Please contact the administrator.
+                        {{i18n.errors.unknownError}}
                     </div>
                 {{/unknownError}}
                 {{#issueCreatedSuccessfully}}
                     <div class="alert alert-success">
-                        The issue was created successfully! You can view it <a href="{{issueURL}}" target="_blank">here</a>.<br><br>
-                        If you want, you can <a href="/{{urlKey}}">create another issue</a>.
+                        {{i18n.issueCreatedSuccessfully.part1}} <a href="{{issueURL}}" target="_blank">{{i18n.issueCreatedSuccessfully.part2}}</a>{{i18n.issueCreatedSuccessfully.part3}}<br><br>
+                        {{i18n.issueCreatedSuccessfully.part4}} <a href="/{{urlKey}}"></a>{{i18n.issueCreatedSuccessfully.part6}}
                     </div>
                 {{/issueCreatedSuccessfully}}
                 {{^issueCreatedSuccessfully}}
                 <form method="POST">
                     <div class="form-group row">
-                        <label for="title" class="col-sm-2 col-form-label">Title</label>
+                        <label for="title" class="col-sm-2 col-form-label">{{i18n.title}}</label>
                         <div class="col-sm-10">
-                            <input type="text" name="title" class="form-control" id="title" value="{{title}}" placeholder="The title of the issue">
+                            <input type="text" name="title" class="form-control" id="title" value="{{title}}" placeholder="{{i18n.title}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="description" class="col-sm-2 col-form-label">Description</label>
+                        <label for="description" class="col-sm-2 col-form-label">{{i18n.description}}</label>
                         <div class="col-sm-10">
-                            <textarea name="description" class="form-control" id="description" placeholder="Description of the problem">{{description}}</textarea>
+                            <textarea name="description" class="form-control" id="description" placeholder="{{i18n.description}}">{{description}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="secret" class="col-sm-2 col-form-label">Secret</label>
+                        <label for="secret" class="col-sm-2 col-form-label">{{i18n.secret}}</label>
                         <div class="col-sm-10">
-                            <input type="password" name="secret" class="form-control" id="secret" value="" placeholder="Anti-Spam-Secret">
+                            <input type="password" name="secret" class="form-control" id="secret" value="" placeholder="{{i18n.secret}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="description" class="col-sm-2 col-form-label">Submit</label>
+                        <label for="description" class="col-sm-2 col-form-label">{{i18n.submit}}</label>
                         <div class="col-sm-10">
-                            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                            <input type="submit" class="btn btn-primary" name="submit" value="{{i18n.submit}}">
                         </div>
                     </div>
                 </form>

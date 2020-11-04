@@ -65,16 +65,17 @@ async function postCreateIssueRoute(request, response) {
                         issueCreatedSuccessfully: true,
                     }
                 );
-            } catch {
-                error();
+            } catch (e) {
+                error(e);
             }
         } else {
-            error();
+            error("Repository not set.");
         }
     }
 
 
-    function error() {
+    function error(e) {
+        console.log(`Error: ${e}`);
         response.render('createIssue',
             {
                 ...getGlobalConfigs(),
