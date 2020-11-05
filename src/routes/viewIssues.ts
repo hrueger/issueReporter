@@ -1,4 +1,5 @@
 import { getGlobalConfigs, getOctokit } from "../globalConfigs";
+import * as marked from "marked";
 
 const octokit = getOctokit();
 
@@ -12,7 +13,10 @@ async function viewIssues(request, response) {
     response.render('viewIssues',
         {
             ...globals,
-            issues,
+            issues: issues.map((i) => {
+                i.body = marked(i.body);
+                return i;
+            }),
         }
     );
 }
