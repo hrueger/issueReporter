@@ -22,12 +22,14 @@ function getCreateIssueRoute(request, response) {
 
 async function postCreateIssueRoute(request, response) {
     const globals = getGlobalConfigs();
-    if (!(request.body.title && request.body.description && typeof request.body.title == "string" && typeof request.body.description == "string")) {
+    if (!(request.body.title && request.body.description && request.body.location && request.body.suggestion && typeof request.body.title == "string" && typeof request.body.description == "string" && typeof request.body.location == "string" && typeof request.body.suggestion == "string")) {
         response.render('createIssue',
             {
                 ...globals,
                 title: request.body.title,
                 description: request.body.description,
+                suggestion: request.body.suggestion,
+                location: request.body.location,
                 missingFields: true,
             }
         );
@@ -37,15 +39,19 @@ async function postCreateIssueRoute(request, response) {
                 ...globals,
                 title: request.body.title,
                 description: request.body.description,
+                suggestion: request.body.suggestion,
+                location: request.body.location,
                 secretIncorrect: true,
             }
         );
-    } else if (!(request.body.title.length > 15 && request.body.description.length > 50)) {
+    } else if (!(request.body.location.length > 5 && request.body.title.length > 15 && request.body.suggestion.length > 15 && request.body.description.length > 30)) {
         response.render('createIssue',
             {
                 ...globals,
                 title: request.body.title,
                 description: request.body.description,
+                suggestion: request.body.suggestion,
+                location: request.body.location,
                 tooShort: true,
             }
         );
@@ -53,7 +59,7 @@ async function postCreateIssueRoute(request, response) {
         // Submit issue
         if (globals.repository) {
             try {
-                let body = request.body.description;
+                let body = `**Location:**\n${request.body.location}\n\n**Description:**\n${request.body.description}\n\n**Suggestion:**\n${request.body.suggestion}`;
                 if (request.files?.screenshot) {
                     const filename = `${v4()}.${(request.files.screenshot.name as string).split(".").pop()}`;
                     await octokit.repos.createOrUpdateFileContents({
@@ -94,6 +100,8 @@ async function postCreateIssueRoute(request, response) {
                 ...getGlobalConfigs(),
                 title: request.body.title,
                 description: request.body.description,
+                suggestion: request.body.suggestion,
+                location: request.body.location,
                 unknownError: true,
             }
         );

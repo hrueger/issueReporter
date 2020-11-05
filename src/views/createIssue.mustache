@@ -43,9 +43,21 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="location" class="col-sm-2 col-form-label">{{i18n.location}} <i class="text-danger">*</i></label>
+                        <div class="col-sm-10">
+                            <textarea name="location" class="form-control" id="location" placeholder="{{i18n.location}}">{{location}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="description" class="col-sm-2 col-form-label">{{i18n.description}} <i class="text-danger">*</i></label>
                         <div class="col-sm-10">
                             <textarea name="description" class="form-control" id="description" placeholder="{{i18n.description}}">{{description}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="suggestion" class="col-sm-2 col-form-label">{{i18n.suggestion}} <i class="text-danger">*</i></label>
+                        <div class="col-sm-10">
+                            <textarea name="suggestion" class="form-control" id="suggestion" placeholder="{{i18n.suggestion}}">{{suggestion}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -55,7 +67,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="secret" class="col-sm-2 col-form-label">{{i18n.screenshot}}</label>
+                        <label for="screenshot" class="col-sm-2 col-form-label">{{i18n.screenshot}}</label>
                         <div class="col-sm-10">
                             <div class="">
                                 <input type="file" class="" name="screenshot" id="screenshot">
