@@ -72,7 +72,7 @@ async function postCreateIssueRoute(request, response) {
                     });
                     body += `\n\n**Attached Screenshot:**\n![${filename}](https://raw.githubusercontent.com/${globals.assetsRepository}/${globals.assetsBranch}/${filename})`;
                 }
-                await octokit.issues.create({
+               const result = await octokit.issues.create({
                     owner: globals.repository.split("/")[0],
                     repo: globals.repository.split("/")[1],
                     title: request.body.title,
@@ -81,6 +81,7 @@ async function postCreateIssueRoute(request, response) {
                 response.render('createIssue',
                     {
                         ...getGlobalConfigs(),
+                        issueUrl: result.data.html_url,
                         issueCreatedSuccessfully: true,
                     }
                 );
