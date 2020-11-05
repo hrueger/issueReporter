@@ -1,16 +1,7 @@
 import { Octokit } from "@octokit/rest";
-import { getGlobalConfigs } from "../globalConfigs";
+import { getGlobalConfigs, getOctokit } from "../globalConfigs";
 import { v4 } from "uuid";
-const octokit = new Octokit({
-    auth: getGlobalConfigs().token,
-    log: {
-        debug: () => console.debug,
-        info: () => console.info,
-        warn: console.warn,
-        error: console.error
-    },
-    
-});
+const octokit = getOctokit();
 
 function getCreateIssueRoute(request, response) {
     response.render('createIssue',

@@ -1,3 +1,4 @@
+import { Octokit } from "@octokit/rest";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -14,4 +15,17 @@ export function getGlobalConfigs() {
         language,
         i18n: JSON.parse(fs.readFileSync(path.join(__dirname, `./assets/i18n/${language}.json`)).toString()),
     };
+}
+
+export function getOctokit() {
+    return new Octokit({
+        auth: getGlobalConfigs().token,
+        log: {
+            debug: () => console.debug,
+            info: () => console.info,
+            warn: console.warn,
+            error: console.error
+        },
+        
+    });
 }

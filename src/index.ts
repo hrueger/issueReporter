@@ -5,6 +5,7 @@ import * as fileUpload from "express-fileupload";
 import * as helmet from "helmet";
 import {getCreateIssueRoute, postCreateIssueRoute} from "./routes/createIssue";
 import welcomeRoute from "./routes/welcome";
+import viewIssuesRoute from "./routes/viewIssues";
 import { getGlobalConfigs } from "./globalConfigs";
 
 let app = express();
@@ -19,6 +20,7 @@ app.use(fileUpload({
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get(`/${getGlobalConfigs().urlKey}`, getCreateIssueRoute);
+app.get(`/${getGlobalConfigs().urlKey}/view`, viewIssuesRoute);
 app.post(`/${getGlobalConfigs().urlKey}`, postCreateIssueRoute);
 app.get("/", welcomeRoute);
 

@@ -1,6 +1,8 @@
 {
     "createIssue": "Create Issue",
     "newIssueFor": "New Issue for",
+    "viewIssues": "Issues ansehen",
+    "issueNotExistingInfo": "If the problem is not listed here, please",
     "errors": {
         "missingFields": "Not all fields were filled out!",
         "wrongSecret": "The Anti-Spam-Secret is incorrect!",
