@@ -1,7 +1,7 @@
 {
     "createIssue": "Create Issue",
     "newIssueFor": "New Issue for",
-    "viewIssues": "Issues ansehen",
+    "viewIssues": "View issues",
     "issueNotExistingInfo": "If the problem is not listed here, please",
     "errors": {
         "missingFields": "Not all fields were filled out!",
@@ -10,9 +10,9 @@
         "unknownError": "An unknown error occured. Please contact the administrator."
     },
     "issueCreatedSuccessfully": {
-        "part1": "The issue was created successfully! You can view it",
+        "part1": "The issue was created successfully!  If the repository is public or if you're logged in at GitHub and have been granted access to the repository, you can view it",
         "part2": "here",
-        "part3": ".",
+        "part3": ". If not, it is also listed here:",
         "part4": "If you want, you can",
         "part5": "create another issue",
         "part6": "."

@@ -10,9 +10,9 @@
         "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte kontaktiere den Administrator."
     },
     "issueCreatedSuccessfully": {
-        "part1": "Der Issue wurde erfolgreich erstellt! Du kannst ihn",
+        "part1": "Der Issue wurde erfolgreich erstellt! Wenn das Repository öffentlich ist oder Du bei GitHub angemeldet bist und Zugriff auf das Repository hast, kannst Du ihn",
         "part2": "hier",
-        "part3": "ansehen.",
+        "part3": "ansehen. Ansonsten ist er auch hier gelistet:",
         "part4": "Wenn du möchtest, kannst du einen",
         "part5": "weiteren Issue erstellen",
         "part6": "."
