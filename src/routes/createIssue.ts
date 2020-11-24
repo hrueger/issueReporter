@@ -35,17 +35,6 @@ async function postCreateIssueRoute(request, response) {
                 secretIncorrect: true,
             }
         );
-    } else if (!(request.body.location.length > 5 && request.body.title.length > 15 && request.body.suggestion.length > 15 && request.body.description.length > 30)) {
-        response.render('createIssue',
-            {
-                ...globals,
-                title: request.body.title,
-                description: request.body.description,
-                suggestion: request.body.suggestion,
-                location: request.body.location,
-                tooShort: true,
-            }
-        );
     } else {
         // Submit issue
         if (globals.repository) {

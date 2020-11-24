@@ -6,7 +6,6 @@
     "errors": {
         "missingFields": "Not all fields were filled out!",
         "wrongSecret": "The Anti-Spam-Secret is incorrect!",
-        "tooShort": "The location must be more than 5 chars, the title and the suggestion more than 15 chars and the description msut be more than 30 chars long!",
         "unknownError": "An unknown error occured. Please contact the administrator."
     },
     "issueCreatedSuccessfully": {

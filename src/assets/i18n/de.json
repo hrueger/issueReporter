@@ -6,7 +6,6 @@
     "errors": {
         "missingFields": "Nicht alle Felder wurden ausgefüllt!",
         "wrongSecret": "Das Anti-Spam-Passwort ist falsch!",
-        "tooShort": "Der Ort muss länger als 5 Zeichen, der Titel und der Lösungsvorschlag länger als 15 Zeichen und die Beschreibung länger als 30 Zeichen sein!",
         "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte kontaktiere den Administrator."
     },
     "issueCreatedSuccessfully": {
